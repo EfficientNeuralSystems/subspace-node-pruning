@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snp"
+version = "0.1.0"
+description = "Subspace Node Pruning: retraining-free neural network compression via orthogonal subspace projections"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Joshua Offergeld" },
+    { name = "John Chidiac" },
+    { name = "Marcel van Gerven" },
+    { name = "Nasir Ahmad" },
+]
+dependencies = [
+    "torch>=2.0",
+    "torchvision",
+    "numpy",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+# Structured pruning of whole networks (dependency graphs, FLOP counting)
+pruning = ["torch-pruning"]
+# Everything needed to run the example notebooks
+notebooks = ["torch-pruning", "transformers", "datasets", "matplotlib", "jupyter"]
+
+[project.urls]
+Paper = "https://arxiv.org/abs/2405.17506"
+Repository = "https://github.com/EfficientNeuralSystems/subspace-node-pruning"
+
+[tool.setuptools]
+packages = ["snp"]
